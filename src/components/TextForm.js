@@ -1,4 +1,4 @@
-import { string } from "prop-types";
+// import { string } from "prop-types";
 import React, { useState } from "react";
 
 export default function TextForm(props) {
