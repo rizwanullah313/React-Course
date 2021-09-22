@@ -12,11 +12,11 @@ function Home() {
         if (mode === "light") {
             setMode("dark");
             document.body.style.backgroundColor = "grey";
-            showAlert(" Dark Mode has been Enabled", "primary " );
+            showAlert(" Dark Mode has been Enabled", "success " );
         } else {
             setMode("light");
             document.body.style.backgroundColor = "gray";
-            showAlert(" White Mode has been Enabled", "primary ")
+            showAlert(" White Mode has been Enabled", "success ")
 
         }
     };
@@ -28,6 +28,9 @@ function Home() {
             msg: message,
             type: type
         })
+        setTimeout(() => {
+            setAlert(null);
+        }, 2000);
     }
 
     return (
@@ -55,9 +58,9 @@ function Home() {
             <br />
             <hr /> <hr />
             <div className="container my-3">
-                <TextForm heading="Enter the text to analyze" mode={mode} />
+            <Alert alert={alert} />
+                <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />
                 {/* <About /> */}
-                <Alert alert={alert} />
             </div>
         </div>
     );
