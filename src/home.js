@@ -13,10 +13,18 @@ function Home() {
             setMode("dark");
             document.body.style.backgroundColor = "grey";
             showAlert(" Dark Mode has been Enabled", "success " );
+            document.title = " car - DarkMode";
+            // setInterval(() => {
+            //     document.title = " car - website";
+            // }, 2000);
+            // setInterval(() => {
+            //     document.title = " car - myapp";
+            // }, 1500);
         } else {
             setMode("light");
             document.body.style.backgroundColor = "gray";
-            showAlert(" White Mode has been Enabled", "success ")
+            showAlert(" White Mode has been Enabled", "success ");
+            document.title = " car - WhiteMode";
 
         }
     };
