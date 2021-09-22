@@ -3,7 +3,14 @@ import Alert from "./components/Alert";
 // import abc from "./file1";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-// import About from "./components/About";
+ import About from "./components/About";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+
 
 function Home() {
     const [mode, setMode] = useState("light");
@@ -12,7 +19,7 @@ function Home() {
         if (mode === "light") {
             setMode("dark");
             document.body.style.backgroundColor = "grey";
-            showAlert(" Dark Mode has been Enabled", "success " );
+            showAlert(" Dark Mode has been Enabled", "success ");
             document.title = " car - DarkMode";
             // setInterval(() => {
             //     document.title = " car - website";
@@ -43,7 +50,8 @@ function Home() {
 
     return (
         <div>
-            {/* <nav>
+            <Router>
+                {/* <nav>
         <li>Home</li>
         <li>About</li>
         <li>Contact</li>
@@ -56,21 +64,30 @@ function Home() {
         check the Laravel version. The above output shows that you are running
         Laravel Framework 7.17.
       </p> */}
-            <Navbar
-                tname="bahria"
-                abouttxt="About Us"
-                mode={mode}
-                toggleMode={toggleMode}
-            />
-            {/*    <Navbar/> */}
-            <br />
-            <hr /> <hr />
-            <div className="container my-3">
-            <Alert alert={alert} />
+                <Navbar
+                    tname="bahria"
+                    abouttxt="About Us"
+                    mode={mode}
+                    toggleMode={toggleMode}
+                />
+                {/*    <Navbar/> */}
+                <br />
+                <hr /> <hr />
+                <div className="container my-3">
+                <Alert alert={alert} />
+                <Switch>
+                <Route exact path="/About">
+                <About />
+                </Route>
+                <Route exact path="/">
                 <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />
-                {/* <About /> */}
-            </div>
+                </Route>
+                </Switch>
+
+            {/* <About /> */}
         </div>
+        </Router>
+        </div >
     );
 }
 export default Home;
