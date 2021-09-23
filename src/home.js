@@ -3,7 +3,7 @@ import Alert from "./components/Alert";
 // import abc from "./file1";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
- import About from "./components/About";
+import About from "./components/About";
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,7 +15,20 @@ import {
 function Home() {
     const [mode, setMode] = useState("light");
     // let name = "bahria";
-    const toggleMode = () => {
+    const removeBodyClassess = () => {
+        document.body.classList.remove('bg-light')
+        document.body.classList.remove('bg-dark')
+        document.body.classList.remove('bg-primary')
+        document.body.classList.remove('bg-warning')
+        document.body.classList.remove('bg-success')
+        document.body.classList.remove('bg-danger')
+
+    }
+
+    const toggleMode = (cls) => {
+        removeBodyClassess();
+        console.log(cls);
+        document.body.classList.add('bg-' + cls)
         if (mode === "light") {
             setMode("dark");
             document.body.style.backgroundColor = "grey";
@@ -74,19 +87,19 @@ function Home() {
                 <br />
                 <hr /> <hr />
                 <div className="container my-3">
-                <Alert alert={alert} />
-                <Switch>
-                <Route exact path="/About">
-                <About mode={mode} />
-                </Route>
-                <Route exact path="/">
-                <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />
-                </Route>
-                </Switch>
+                    <Alert alert={alert} />
+                    <Switch>
+                        <Route exact path="/About">
+                            <About mode={mode} />
+                        </Route>
+                        <Route exact path="/">
+                            <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />
+                        </Route>
+                    </Switch>
 
-            {/* <About /> */}
-        </div>
-        </Router>
+                    {/* <About /> */}
+                </div>
+            </Router>
         </div >
     );
 }
