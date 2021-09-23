@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function About() {
+export default function About(props) {
   const [myStyle, setMyStyle] = useState({
     color: "black",
     backgroundColor: "white",
@@ -23,6 +23,11 @@ export default function About() {
       setBtnText("Enable Dark Mode");
     }
   };
+
+  // let mmStyle = {
+  //   color: props.mode ==='dark'?'white':'#042743',
+  //   backgroundColor: Response.mode === 'dark'?'rgb(36 74 104)':'white',
+  // }
   return (
     <div>
       <div className="container" style={myStyle}>
@@ -39,7 +44,7 @@ export default function About() {
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                Accordion Item #1
+                Analyze Your Use
               </button>
             </h2>
             <div
@@ -72,7 +77,7 @@ export default function About() {
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                Accordion Item #2
+                Free To Use
               </button>
             </h2>
             <div
@@ -105,7 +110,7 @@ export default function About() {
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                Accordion Item #3
+                Browser Comportable
               </button>
             </h2>
             <div

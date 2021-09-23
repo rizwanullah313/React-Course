@@ -77,7 +77,7 @@ function Home() {
                 <Alert alert={alert} />
                 <Switch>
                 <Route exact path="/About">
-                <About />
+                <About mode={mode} />
                 </Route>
                 <Route exact path="/">
                 <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />

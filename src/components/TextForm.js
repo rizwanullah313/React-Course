@@ -15,14 +15,14 @@ export default function TextForm(props) {
     // settext("Change Text");
     let nText = text.toLowerCase();
     settext(nText);
-    props.showAlert(" Converted text into Lower Case", "success " );
+    props.showAlert(" Converted text into Lower Case", "success ");
 
   };
 
   const handleclClick = () => {
     let nttext = " ";
     settext(nttext);
-    props.showAlert(" Clear Text Successfully", "success " );
+    props.showAlert(" Clear Text Successfully", "success ");
 
   };
   const handlleOnChange = (event) => {
@@ -39,7 +39,7 @@ export default function TextForm(props) {
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     settext(newText.join(" "));
-    props.showAlert(" remove Extra Spaces Successfully", "success " );
+    props.showAlert(" remove Extra Spaces Successfully", "success ");
 
   };
   const [text, settext] = useState(" ");
@@ -103,9 +103,11 @@ export default function TextForm(props) {
       >
         <h1>Your Text Summary</h1>
         <p>
-          {text.split(" ").length} words, {text.length} characters
+          {text.split(" ").filter((element)=>{
+            return element.length!==0}).length} words, {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes Read</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{
+            return element.length!==0}).length} Minutes Read</p>
         <h3>Preview</h3>
         <p>
           {text.length > 0 ? text : "Enter Text in above Box To Preview here"}
